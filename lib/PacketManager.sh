@@ -6,6 +6,10 @@ Menu(){
     read choice
 }
 
+Install(){
+  read -p "Enter packet name => " packetName
+  yum install $packetName
+}
 
 exit=true
 
@@ -13,7 +17,7 @@ while [ $exit == true ]
 do
   Menu;
   case $choice in
-    1) echo "Install"; ;;
+    1) Install; ;;
     0) echo "Bye!"; let exit=false; ;;
     *) echo "Wring choice!"; ;;
   esac
