@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-clear
 
+clear
 Menu(){
-  echo -e "1. Packet manager\n0. Exit";
-  read choice
+    echo -e "1. Install\n2. Search\n3. Remove\n4. Update\n0. Exit"
+    read choice
 }
 
 
@@ -13,7 +13,7 @@ while [ $exit == true ]
 do
   Menu;
   case $choice in
-    1) source lib/PacketManager.sh; ;;
+    1) echo "Install"; ;;
     0) echo "Bye!"; let exit=false; ;;
     *) echo "Wring choice!"; ;;
   esac
