@@ -6,9 +6,23 @@ PTMenu(){
     read choice
 }
 
-Install(){
+PTInstall(){
   read -p "Enter packet name => " packetName
   yum install $packetName
+}
+
+PTSearch(){
+  read -p "Enter packet name => " packetName
+  yum search $packetName
+}
+
+PTRemove(){
+  read -p "Enter packet name => " packetName
+  yum remove $packetName
+}
+
+PTUpdate(){
+  yum update
 }
 
 pmexit=true
@@ -17,8 +31,11 @@ while [ $pmexit == true ]
 do
   PTMenu;
   case $choice in
-    1) Install; ;;
+    1) PTInstall; ;;
+    2) PTSearch; ;;
+    3) PTRemove; ;;
+    4) PTUpdate; ;;
     0) echo "Back to main menu!"; let pmexit=false; ;;
-    *) echo "Wring choice!"; ;;
+    *) echo "Wrong choice!"; ;;
   esac
 done
