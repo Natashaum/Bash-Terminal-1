@@ -2,7 +2,7 @@
 clear
 
 Menu(){
-  echo -e "1. Packet manager\n0. Exit";
+  echo -e "1. Packet manager\n2. User manager\n0. Exit";
   read choice
 }
 
@@ -14,6 +14,7 @@ do
   Menu;
   case $choice in
     1) source lib/PacketManager.sh; ;;
+    2) source lib/UserManager.sh; ;;
     0) echo "Bye!"; let exit=false; ;;
     *) echo "Wring choice!"; ;;
   esac
