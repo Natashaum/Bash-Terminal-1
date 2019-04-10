@@ -53,6 +53,20 @@ UMCreateUser(){
     else echo "Wrong choice!"
    fi 
 }
+function UMDeleteUser(){
+  echo "Enter username to delete: "
+  read delName
+  cat /etc/passwd | grep $delName
+  if (( $delName == 0 ))
+  then 
+    userdel $delName -r
+    echo "Success!"
+  else 
+    echo "User does not exist!"
+  fi
+
+}
+
 
 umexit=true
 
@@ -61,6 +75,7 @@ do
   UMMenu;
   case $choice in
     1) UMCreateUser; ;;
+    2) UMDeleteUser; ;;
     0) echo "Back to main menu!"; let umexit=false; ;;
     *) echo "Wrong choice!"; ;;
   esac
